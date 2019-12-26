@@ -1,19 +1,36 @@
 import React from "react";
 
-export default class Filters extends React.Component {
-  render() {
-    return (
-      <form className="mb-3">
-        <div className="form-group">
-          <label htmlFor="sort_by">Сортировать по:</label>
-          <select className="form-control" id="sort_by">
-            <option value="popularity.desc">Популярные по убыванию</option>
-            <option value="popularity.asc">Популярные по возростанию</option>
-            <option value="vote_average.desc">Рейтинг по убыванию</option>
-            <option value="vote_average.asc">Рейтинг по возростанию</option>
-          </select>
-        </div>
-      </form>
-    );
-  }
-}
+import { SortBy } from "./SortBy";
+import { ReleaseDate } from "./ReleaseDate.jsx";
+import { Pagination } from "./Pagination.jsx";
+import { Genres } from "./Genres.jsx";
+
+export const Filters = ({
+  filters: { sort_by, year },
+  onChangeFilters,
+  onChangePage,
+  page,
+  yearsList,
+  amountFilms,
+  clearFilters,
+  genres,
+  onChangeGenres
+}) => (
+  <form className="mb-3">
+    <SortBy onChangeFilters={onChangeFilters} sort_by={sort_by} />
+    <ReleaseDate
+      onChangeFilters={onChangeFilters}
+      year={year}
+      yearsList={yearsList}
+    />
+    <button type="button" className="btn btn-secondary" onClick={clearFilters}>
+      Сбросить фильтры
+    </button>
+    <Pagination
+      page={page}
+      onChangePage={onChangePage}
+      amountFilms={amountFilms}
+    />
+    <Genres arrGenres={genres} onChangeGenres={onChangeGenres} />
+  </form>
+);

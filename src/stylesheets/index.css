@@ -1,3 +1,15 @@
 body {
-  background: #fdfdfd; 
+  background: #fdfdfd;
+}
+
+.my-form-control {
+  margin-bottom: 15px;
+}
+
+.pagination-wrapper {
+  margin: 15px 0;
+}
+
+.pagination {
+  margin-bottom: 15px;
 }
