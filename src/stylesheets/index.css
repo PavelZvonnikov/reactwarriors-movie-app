@@ -2,6 +2,10 @@ body {
   background: #fdfdfd;
 }
 
+.invalid-feedback {
+  display: block;
+}
+
 .my-form-control {
   margin-bottom: 15px;
 }
@@ -12,4 +16,8 @@ body {
 
 .pagination {
   margin-bottom: 15px;
+}
+
+.error {
+  border-color: red;
 }

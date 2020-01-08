@@ -18,22 +18,24 @@ export const Select = ({
   id,
   array,
   defaultValue = ""
-}) => (
-  <div>
-    <label htmlFor={id}>{labelText}</label>
-    <select
-      className="form-control my-form-control"
-      name={name}
-      id={id}
-      value={value}
-      onChange={onChange}
-    >
-      {defaultValue ? <option value="0">{defaultValue}</option> : "0"}
-      {array.map(elem => (
-        <option key={elem.value} value={elem.value}>
-          {elem.label}
-        </option>
-      ))}
-    </select>
-  </div>
-);
+}) => {
+  return (
+    <div>
+      <label htmlFor={id}>{labelText}</label>
+      <select
+        className="form-control my-form-control"
+        name={name}
+        id={id}
+        value={value}
+        onChange={onChange}
+      >
+        {defaultValue ? <option value="0">{defaultValue}</option> : "0"}
+        {array.map(elem => (
+          <option key={elem.value} value={elem.value}>
+            {elem.label}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+};
