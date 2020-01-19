@@ -1,5 +1,6 @@
 import React from "react";
-
+import { AppContext } from "../App";
+// import AppContextHOC from "../HOC/AppContextHOC";
 /**
  * Компонент выбора элементов
  *
@@ -10,7 +11,7 @@ import React from "react";
  * @param onChange - обработчик изменения значения
  * @param array - массив элементов для выбора
  */
-export const Select = ({
+const Select = ({
   labelText,
   name,
   value,
@@ -39,3 +40,15 @@ export const Select = ({
     </div>
   );
 };
+
+export default props => {
+  return (
+    <AppContext.Consumer>
+      {({ sort_by, onChangeFilters }) => (
+        <Select value={sort_by} onChangeFilters={onChangeFilters} {...props} />
+      )}
+    </AppContext.Consumer>
+  );
+};
+
+// export default AppContextHOC(Select);

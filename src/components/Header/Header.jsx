@@ -1,9 +1,10 @@
 import React from "react";
 
 import { Login } from "./Login/Login";
-import { User } from "./User";
+// import User from "./User";
+import UserMenu from "./UserMenu";
 
-export const Header = ({ updateUser, user, updateSessionID }) => {
+export const Header = ({ user, session_id }) => {
   return (
     <nav className="navbar navbar-dark bg-primary">
       <div className="container">
@@ -14,11 +15,7 @@ export const Header = ({ updateUser, user, updateSessionID }) => {
             </a>
           </li>
         </ul>
-        {user ? (
-          <User user={user} />
-        ) : (
-          <Login updateUser={updateUser} updateSessionID={updateSessionID} />
-        )}
+        {user ? <UserMenu /> : <Login session_id={session_id} />}
       </div>
     </nav>
   );
